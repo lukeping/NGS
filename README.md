@@ -2,21 +2,21 @@
 NGS数据分析主要包括以下几个大的方面：
 
 1. Mapping
-1.1 DNA mapping
-1.2 RNA mapping
+1.1 DNA mapping  
+1.2 RNA mapping  
 
 2. 组装
-2.1 小基因组组装
-2.2 真核生物基因组组装（大基因组组装）
+2.1 小基因组组装  
+2.2 真核生物基因组组装（大基因组组装）  
 
 3. 变异分析
-3.1 SNP/Indel
-3.2 SV
+3.1 SNP/Indel  
+3.2 SV  
 
 4. RNA-Seq相关
-4.1 差异表达分析
-4.2 可变剪切
-4.3 富集分析（GO富集，Pathway富集等）
+4.1 差异表达分析  
+4.2 可变剪切  
+4.3 富集分析（GO富集，Pathway富集等）  
 
 5. GWAS
 
