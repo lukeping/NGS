@@ -1,24 +1,17 @@
 # 高通量测序数据分析实践操作
-本课程主要包括以下几个方面内容，
+RNA-Seq分析流程  
 
-1. Mapping  
-1.1 DNA mapping  
-1.2 RNA mapping  
+一、前处理  
 
-2. 组装  
-2.1 小基因组组装  
-2.2 真核生物基因组组装（大基因组组装）  
-2.3 转录组组装  
+1. 获取数据
+2. 质控（QC）
 
-3. 变异分析  
-3.1 SNP/Indel  
-3.2 SV  
+二、基本分析  
 
-4. RNA-Seq相关  
-4.1 差异表达分析  
-4.2 可变剪切  
-4.3 富集分析（GO富集，Pathway富集等）  
+RNA-Seq项目分析主要可分为3种策略
+https://static-content.springer.com/image/art%3A10.1186%2Fs13059-016-0881-8/MediaObjects/13059_2016_881_Fig2_HTML.gif
 
+三、高级分析  
 
 
 
