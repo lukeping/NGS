@@ -4,8 +4,25 @@ RNA-Seq分析流程
 一、数据前处理  
 
 1. 获取数据
-2. 质控（QC）
+```
+试验数据服务器存放地址
+/bs1/data/NGS/data/
+测序原始数据
+/bs1/data/NGS/data/fq/
+参考基因组
+/bs1/data/NGS/data/ref/
 
+准备工作目录
+mkdir work work/00.fq work/db
+cd work/00.fq
+ln -s /bs1/data/NGS/data/fq/*.gz ./
+cd ../db
+ln -s /bs1/data/NGS/data/ref/genome.fa ./
+```
+2. 质控（QC）
+```
+
+```
 二、基本分析  
 
 RNA-Seq项目分析主要可分为3种应用情景  
