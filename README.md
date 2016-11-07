@@ -48,9 +48,9 @@ RNA-Seq项目分析主要可分为3种应用情景
 ![Image]
 (https://static-content.springer.com/image/art%3A10.1186%2Fs13059-016-0881-8/MediaObjects/13059_2016_881_Fig2_HTML.gif)
 
-[分析流程a：]()  
-[分析流程b：]()  
-[分析流程c：]()  
+[分析流程a：Tophat -> Cufflinks]()  
+[分析流程b：Kallisto]()  
+[分析流程c：Trinity -> RSEM]()  
 
 ## 三、高级分析  
 
