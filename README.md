@@ -2,10 +2,11 @@
 RNA-Seq分析流程  
 
 ```
+加载环境变量
 module add bioinfo
 ```
 
-一、数据前处理  
+## 一、数据前处理  
 
 1. 获取数据
 ```
@@ -36,7 +37,7 @@ fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/]
 如果发现测序质量比较差，需要作进一步过滤处理的，可以用`trimmomatic`进行处理。  
 [trimmomatic参考使用方法](http://www.usadellab.org/cms/?page=trimmomatic)  
 
-二、基本分析  
+## 二、基本分析  
 
 RNA-Seq项目分析主要可分为3种应用情景  
 
@@ -51,7 +52,12 @@ RNA-Seq项目分析主要可分为3种应用情景
 [分析流程b：]()  
 [分析流程c：]()  
 
-三、高级分析  
+## 三、高级分析  
 
+
+## 报告内容要求  
+1. 测序质量报告  
+2. Mapping结果统计  
+3. 
 
 
