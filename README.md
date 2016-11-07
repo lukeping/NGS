@@ -27,7 +27,7 @@ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 cd 00.fq/
 fastqc -o qc/ *.fastq.gz 
-# fastqc后不接参数，则是以交互式图形界面运行，需要支持WindowsX server的支持
+# fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持
 ```
 fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
 [质量好的报告](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
