@@ -30,8 +30,11 @@ fastqc -o qc/ *.fastq.gz
 # fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持
 ```
 fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
-[质量好的报告](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
-[质量差的报告](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
+[质量好的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
+[质量差的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
+
+如果发现测序质量比较差，需要作进一步过滤处理的，可以用`trimmomatic`进行处理。  
+[trimmomatic参考使用方法](http://www.usadellab.org/cms/?page=trimmomatic)  
 
 二、基本分析  
 
