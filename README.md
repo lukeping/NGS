@@ -1,6 +1,10 @@
 # 高通量测序数据分析实践操作
 RNA-Seq分析流程  
 
+```
+module add bioinfo
+```
+
 一、数据前处理  
 
 1. 获取数据
@@ -21,8 +25,14 @@ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 2. 质控（QC）
 ```
-
+cd 00.fq/
+fastqc -o qc/ *.fastq.gz 
+# fastqc后不接参数，则是以交互式图形界面运行，需要支持WindowsX server的支持
 ```
+fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
+[质量好的报告](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
+[质量差的报告](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
+
 二、基本分析  
 
 RNA-Seq项目分析主要可分为3种应用情景  
