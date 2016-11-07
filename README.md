@@ -5,6 +5,8 @@ RNA-Seq分析流程
 加载环境变量
 module add bioinfo
 ```
+实验设计  
+两组样  
 
 ## 一、数据前处理  
 
@@ -24,6 +26,10 @@ ln -s /bs1/data/NGS/data/fq/*.gz ./
 cd ../db
 ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
+
+
+
+
 2. 质控（QC）
 ```
 cd 00.fq/
