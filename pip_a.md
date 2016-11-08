@@ -32,6 +32,23 @@ lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/d
 > cd ../
 > mkdir mapping
 > cd mapping
-> hisat2 -x ../db/genome -1 ../../00.fq/AV-1.R1.clean.fastq.gz -2 ../../00.fq/AV-1.R2.clean.fastq.gz -S wild_1.sam
-> hisat2 -x ../db/genome -1 ../../00.fq/AV-1.R1.clean.fastq.gz -2 ../../00.fq/AV-1.R2.clean.fastq.gz -S wild_1.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/WLD-2.R1.fastq.gz -2 ../../00.fq/WLD-2.R2.fastq.gz -S wild_2.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/WLD-3.R1.fastq.gz -2 ../../00.fq/WLD-3.R2.fastq.gz -S wild_3.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/MUT-1.R1.fastq.gz -2 ../../00.fq/MUT-1.R2.fastq.gz -S mutant_1.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/MUT-2.R1.fastq.gz -2 ../../00.fq/MUT-2.R2.fastq.gz -S mutant_2.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R2.fastq.gz -S mutant_3.sam
+> ll ./*.sam
+
+```
+**Sort & index BAM files**  
+```
+> samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
+> samtools view -b wild_2.sam | samtools sort -o wild_2.bam - 
+> samtools view -b wild_3.sam | samtools sort -o wild_3.bam - 
+> samtools view -b mutant_1.sam | samtools sort -o mutant_1.bam - 
+> samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam - 
+> samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
+> samtools index *.bam
+
 ```
