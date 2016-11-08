@@ -11,6 +11,9 @@ $ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 
 **参考基因组建索引**  
+
+**时间估计：5 min**
+
 ```
 $ hisat2-build genome.fa genome
 ```
@@ -28,6 +31,9 @@ $ ls -l
 lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/data/ref/genome.fa
 ```
 **Mapping**
+
+**时间估计：10 h**
+
 ```
 $ cd ../
 $ mkdir mapping
@@ -42,6 +48,9 @@ $ ll ./*.sam
 
 ```
 **Sort & index BAM files**  
+
+**时间估计：5 h**
+
 ```
 $ samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
 $ samtools view -b wild_2.sam | samtools sort -o wild_2.bam - 
@@ -55,16 +64,18 @@ $ rm *.sam
 ```
 **组装**  
 
+**时间估计：1 h**
+
 ```
 $ cd ../
 $ mkdir assem
 $ cd assem
-$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild-1.gtf -l wild-1 ../mapping/wild-1.bam
-$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild-2.gtf -l wild-2 ../mapping/wild-2.bam
-$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild-3.gtf -l wild-3 ../mapping/wild-3.bam
-$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant-1.gtf -l mutant-1 ../mapping/mutant-1.bam
-$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant-2.gtf -l mutant-2 ../mapping/mutant-2.bam
-$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant-3.gtf -l mutant-3 ../mapping/mutant-3.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild_1.gtf -l wild_1 ../mapping/wild_1.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild_2.gtf -l wild_2 ../mapping/wild_2.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild_3.gtf -l wild_3 ../mapping/wild_3.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant_1.gtf -l mutant_1 ../mapping/mutant_1.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant_2.gtf -l mutant_2 ../mapping/mutant_2.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant_3.gtf -l mutant_3 ../mapping/mutant_3.bam
 合并
 $ ls *.gtf > mergelist.txt
 $ stringtie --merge -G /bs1/data/NGS/data/ref/gene.gff -o stringtie_merge.gtf mergelist.txt
