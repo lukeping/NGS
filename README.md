@@ -66,7 +66,31 @@ $ cd 00.fq/
 $ mkdir qc
 $ fastqc -o qc/ *.fastq.gz
 $ ll qc/
-
+总用量 8752
+-rw-rw-r--. 1 public public 334917 11月  8 09:05 MUT-1.R1_fastqc.html
+-rw-rw-r--. 1 public public 381568 11月  8 09:05 MUT-1.R1_fastqc.zip
+-rw-rw-r--. 1 public public 347082 11月  8 09:08 MUT-1.R2_fastqc.html
+-rw-rw-r--. 1 public public 401704 11月  8 09:08 MUT-1.R2_fastqc.zip
+-rw-rw-r--. 1 public public 313485 11月  8 09:11 MUT-2.R1_fastqc.html
+-rw-rw-r--. 1 public public 393983 11月  8 09:11 MUT-2.R1_fastqc.zip
+-rw-rw-r--. 1 public public 323387 11月  8 09:15 MUT-2.R2_fastqc.html
+-rw-rw-r--. 1 public public 408992 11月  8 09:15 MUT-2.R2_fastqc.zip
+-rw-rw-r--. 1 public public 335965 11月  8 09:19 MUT-3.R1_fastqc.html
+-rw-rw-r--. 1 public public 430604 11月  8 09:19 MUT-3.R1_fastqc.zip
+-rw-rw-r--. 1 public public 342367 11月  8 09:23 MUT-3.R2_fastqc.html
+-rw-rw-r--. 1 public public 439796 11月  8 09:23 MUT-3.R2_fastqc.zip
+-rw-rw-r--. 1 public public 335152 11月  8 09:26 WLD-1.R1_fastqc.html
+-rw-rw-r--. 1 public public 381084 11月  8 09:26 WLD-1.R1_fastqc.zip
+-rw-rw-r--. 1 public public 338596 11月  8 09:29 WLD-1.R2_fastqc.html
+-rw-rw-r--. 1 public public 383675 11月  8 09:29 WLD-1.R2_fastqc.zip
+-rw-rw-r--. 1 public public 314118 11月  8 09:33 WLD-2.R1_fastqc.html
+-rw-rw-r--. 1 public public 398020 11月  8 09:33 WLD-2.R1_fastqc.zip
+-rw-rw-r--. 1 public public 312072 11月  8 09:37 WLD-2.R2_fastqc.html
+-rw-rw-r--. 1 public public 395426 11月  8 09:37 WLD-2.R2_fastqc.zip
+-rw-rw-r--. 1 public public 308044 11月  8 09:41 WLD-3.R1_fastqc.html
+-rw-rw-r--. 1 public public 385617 11月  8 09:41 WLD-3.R1_fastqc.zip
+-rw-rw-r--. 1 public public 311030 11月  8 09:45 WLD-3.R2_fastqc.html
+-rw-rw-r--. 1 public public 393542 11月  8 09:45 WLD-3.R2_fastqc.zip
 ```
 结果文件存放在`qc/`子目录中。  
 >fastqc后如不接任何参数，则是以交互式图形界面运行，需要WindowsX server的支持  
