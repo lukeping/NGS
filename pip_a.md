@@ -32,7 +32,7 @@ lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/d
 ```
 **Mapping**
 
->**时间估计：10 h**
+>**时间估计：4 h**
 
 ```
 $ cd ../
