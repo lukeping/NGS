@@ -1,6 +1,6 @@
 # 高通量测序数据分析实践操作
 RNA-Seq分析流程  
-**说明：`>`后为命令，其他的为输出或说明。  
+**说明：`>`后为命令，其他的为输出或说明。**  
 
 ```
 加载环境变量
@@ -30,11 +30,11 @@ MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 /bs1/data/NGS/data/ref/
 
 准备工作目录
-mkdir work work/00.fq work/db
-cd work/00.fq
-ln -s /bs1/data/NGS/data/fq/*.gz ./
-cd ../db
-ln -s /bs1/data/NGS/data/ref/genome.fa ./
+> mkdir work work/00.fq work/db
+> cd work/00.fq
+> ln -s /bs1/data/NGS/data/fq/*.gz ./
+> cd ../db
+> ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 
 
@@ -42,10 +42,12 @@ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 
 2. 质控（QC）
 ```
-cd 00.fq/
-fastqc -o qc/ *.fastq.gz 
-# fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持
+> cd 00.fq/
+> fastqc -o qc/ *.fastq.gz
 ```
+结果文件存放在`qc/`子目录中。  
+>>fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持  
+
 fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
 [质量好的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
 [质量差的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
