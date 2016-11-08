@@ -9,7 +9,7 @@
 加载环境变量
 $ module add bioinfo
 ```
-## 实验设计  
+## 试验设计 与 试验目的  
 比较野生型与突变体之间的基因表达差异，一组为野生型，一组为突变体，分别设了3次重复。  
 
 序列文件 | 类型 | 样本编号
@@ -20,6 +20,12 @@ WLD-3.R1.fastq.gz, WLD-3.R2.fastq.gz | 野生型 | Wild-3
 MUT-1.R1.fastq.gz, MUT-1.R2.fastq.gz | 突变体 | Mutant-1
 MUT-2.R1.fastq.gz, MUT-2.R2.fastq.gz | 突变体 | Mutant-2
 MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
+
+我们分别用以下三种策略对试验数据进行分析：  
+
+1. 有参考基因组，需要组装新的转录本
+2. 有参考基因组，不需要组装新的转录本
+3. 无参考基因组
 
 ## 一、数据前处理  
 
