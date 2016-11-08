@@ -49,6 +49,7 @@ $ samtools view -b wild_3.sam | samtools sort -o wild_3.bam -
 $ samtools view -b mutant_1.sam | samtools sort -o mutant_1.bam - 
 $ samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam - 
 $ samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
-$ samtools index *.bam
+删除中间文件
+$ rm *.sam
 
 ```
