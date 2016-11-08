@@ -3,11 +3,11 @@
 ## 操作说明    
 
 
-**说明：`>`后为命令，其他的为输出或说明。**  
+**说明：`$`后为命令，其他的为输出或说明。**  
 
 ```
 加载环境变量
-> module add bioinfo
+$ module add bioinfo
 ```
 ## 实验设计  
 比较野生型与突变体之间的基因表达差异，一组为野生型，一组为突变体，分别设了3次重复。  
@@ -33,10 +33,10 @@ MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 /bs1/data/NGS/data/ref/
 
 准备工作目录
-> mkdir work work/00.fq work/db
-> cd work/00.fq
-> ln -s /bs1/data/NGS/data/fq/*.gz ./
-> ls -l
+$ mkdir work work/00.fq work/db
+$ cd work/00.fq
+$ ln -s /bs1/data/NGS/data/fq/*.gz ./
+$ ls -l
 lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-1.R1.fastq.gz -> /bs1/data/NGS/data/fq/MUT-1.R1.fastq.gz
 lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-1.R2.fastq.gz -> /bs1/data/NGS/data/fq/MUT-1.R2.fastq.gz
 lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-2.R1.fastq.gz -> /bs1/data/NGS/data/fq/MUT-2.R1.fastq.gz
@@ -62,10 +62,10 @@ fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/]
 [测序质量差的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
 
 ```
-> cd 00.fq/
-> mkdir qc
-> fastqc -o qc/ *.fastq.gz
-> ll qc/
+$ cd 00.fq/
+$ mkdir qc
+$ fastqc -o qc/ *.fastq.gz
+$ ll qc/
 
 ```
 结果文件存放在`qc/`子目录中。  
