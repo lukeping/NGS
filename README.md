@@ -46,7 +46,7 @@ MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 > fastqc -o qc/ *.fastq.gz
 ```
 结果文件存放在`qc/`子目录中。  
->>fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持  
+>fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持  
 
 fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
 [质量好的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
