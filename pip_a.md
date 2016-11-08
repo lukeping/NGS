@@ -3,20 +3,20 @@
  说明：结果文件放到`result/01.hisat`目录中。  
  
 ```
-> cd result
-> mkdir 01.hisat
-> mkdir 01.hisat/db
-> cd 01.hisat/db/
-> ln -s /bs1/data/NGS/data/ref/genome.fa ./
+$ cd result
+$ mkdir 01.hisat
+$ mkdir 01.hisat/db
+$ cd 01.hisat/db/
+$ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 
 **参考基因组建索引**  
 ```
-> hisat2-build genome.fa genome
+$ hisat2-build genome.fa genome
 ```
 建完索引后会生成几个索引文件  
 ```
-> ls -l
+$ ls -l
 -rw-rw-r--. 1 public public 31720791 11月  8 08:12 genome.1.ht2
 -rw-rw-r--. 1 public public 20523760 11月  8 08:12 genome.2.ht2
 -rw-rw-r--. 1 public public    85850 11月  8 08:10 genome.3.ht2
@@ -29,26 +29,26 @@ lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/d
 ```
 **Mapping**
 ```
-> cd ../
-> mkdir mapping
-> cd mapping
-> hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam
-> hisat2 -x ../db/genome -1 ../../00.fq/WLD-2.R1.fastq.gz -2 ../../00.fq/WLD-2.R2.fastq.gz -S wild_2.sam
-> hisat2 -x ../db/genome -1 ../../00.fq/WLD-3.R1.fastq.gz -2 ../../00.fq/WLD-3.R2.fastq.gz -S wild_3.sam
-> hisat2 -x ../db/genome -1 ../../00.fq/MUT-1.R1.fastq.gz -2 ../../00.fq/MUT-1.R2.fastq.gz -S mutant_1.sam
-> hisat2 -x ../db/genome -1 ../../00.fq/MUT-2.R1.fastq.gz -2 ../../00.fq/MUT-2.R2.fastq.gz -S mutant_2.sam
-> hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R2.fastq.gz -S mutant_3.sam
-> ll ./*.sam
+$ cd ../
+$ mkdir mapping
+$ cd mapping
+$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam
+$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-2.R1.fastq.gz -2 ../../00.fq/WLD-2.R2.fastq.gz -S wild_2.sam
+$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-3.R1.fastq.gz -2 ../../00.fq/WLD-3.R2.fastq.gz -S wild_3.sam
+$ hisat2 -x ../db/genome -1 ../../00.fq/MUT-1.R1.fastq.gz -2 ../../00.fq/MUT-1.R2.fastq.gz -S mutant_1.sam
+$ hisat2 -x ../db/genome -1 ../../00.fq/MUT-2.R1.fastq.gz -2 ../../00.fq/MUT-2.R2.fastq.gz -S mutant_2.sam
+$ hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R2.fastq.gz -S mutant_3.sam
+$ ll ./*.sam
 
 ```
 **Sort & index BAM files**  
 ```
-> samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
-> samtools view -b wild_2.sam | samtools sort -o wild_2.bam - 
-> samtools view -b wild_3.sam | samtools sort -o wild_3.bam - 
-> samtools view -b mutant_1.sam | samtools sort -o mutant_1.bam - 
-> samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam - 
-> samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
-> samtools index *.bam
+$ samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
+$ samtools view -b wild_2.sam | samtools sort -o wild_2.bam - 
+$ samtools view -b wild_3.sam | samtools sort -o wild_3.bam - 
+$ samtools view -b mutant_1.sam | samtools sort -o mutant_1.bam - 
+$ samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam - 
+$ samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
+$ samtools index *.bam
 
 ```
