@@ -14,7 +14,7 @@
 ```
 > hisat2-build genome.fa genome
 ```
-建完索引后会生成几个索引文件，  
+建完索引后会生成几个索引文件  
 ```
 > ls -l
 -rw-rw-r--. 1 public public 31720791 11月  8 08:12 genome.1.ht2
@@ -26,4 +26,12 @@
 -rw-rw-r--. 1 public public        8 11月  8 08:10 genome.7.ht2
 -rw-rw-r--. 1 public public        8 11月  8 08:10 genome.8.ht2
 lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/data/ref/genome.fa
+```
+**Mapping**
+```
+> cd ../
+> mkdir mapping
+> cd mapping
+> hisat2 -x ../db/genome -1 ../../00.fq/AV-1.R1.clean.fastq.gz -2 ../../00.fq/AV-1.R2.clean.fastq.gz -S wild_1.sam
+> hisat2 -x ../db/genome -1 ../../00.fq/AV-1.R1.clean.fastq.gz -2 ../../00.fq/AV-1.R2.clean.fastq.gz -S wild_1.sam
 ```
