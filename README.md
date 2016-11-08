@@ -6,7 +6,11 @@ RNA-Seq分析流程
 module add bioinfo
 ```
 实验设计  
-两组样  
+两组样品，一组为野生型，一组为突变体，分别设了3次重复。  
+序列文件 | 类型 | 样本编号
+WLD-1.R1.fastq.gz, WLD-1.R2.fastq.gz | Wild-1
+WLD-2.R1.fastq.gz, WLD-2.R2.fastq.gz | Wild-2
+WLD-3.R1.fastq.gz, WLD-3.R2.fastq.gz | Wild-3
 
 ## 一、数据前处理  
 
