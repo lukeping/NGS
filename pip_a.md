@@ -1,6 +1,6 @@
 # 有参考基因组，但需要组装新的转录本  
 
-**总流程说明**  
+## 总流程说明  
 
 `HISAT2` -> `StringTie` -> `Ballgown`  
 
@@ -8,14 +8,15 @@
 
 ![Hisat pipeline](./hisatpipeline.png)
 
+## 上机操作  
+
 说明：结果文件放到`result/01.hisat`目录中。  
  
 ```
 $ cd result
 $ mkdir 01.hisat
 $ mkdir 01.hisat/db
-$ cd 01.hisat/db/
-$ ln -s /bs1/data/NGS/data/ref/genome.fa ./
+
 ```
 
 **参考基因组建索引**  
@@ -23,6 +24,8 @@ $ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 >**时间估计：5 min**
 
 ```
+$ cd 01.hisat/db/
+$ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 $ hisat2-build genome.fa genome
 ```
 建完索引后会生成几个索引文件  
