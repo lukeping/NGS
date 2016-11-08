@@ -53,3 +53,20 @@ $ samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam -
 $ rm *.sam
 
 ```
+**组装**  
+
+```
+$ cd ../
+$ mkdir assem
+$ cd assem
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild-1.gtf -l wild-1 ../mapping/wild-1.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild-2.gtf -l wild-2 ../mapping/wild-2.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o wild-3.gtf -l wild-3 ../mapping/wild-3.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant-1.gtf -l mutant-1 ../mapping/mutant-1.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant-2.gtf -l mutant-2 ../mapping/mutant-2.bam
+$ stringtie -G /bs1/data/NGS/data/ref/gene.gff -o mutant-3.gtf -l mutant-3 ../mapping/mutant-3.bam
+合并
+$ ls *.gtf > mergelist.txt
+$ stringtie --merge -G /bs1/data/NGS/data/ref/gene.gff -o stringtie_merge.gtf mergelist.txt
+
+```
