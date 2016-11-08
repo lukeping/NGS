@@ -103,16 +103,13 @@ $ ll qc/
 
 RNA-Seq项目分析主要可分为3种应用情景  
 
-1. 有参考基因组，需要预测新转录本（a）
-2. 有参考基因组，不需要预测新转录本（b）
-3. 无参考基因组（c）
+[1. 有参考基因组，需要预测新转录本（a）Hisat2, StringTie, ]()
+[2. 有参考基因组，不需要预测新转录本（b）]()
+[3. 无参考基因组（c）]()
 
 ![Image]
 (https://static-content.springer.com/image/art%3A10.1186%2Fs13059-016-0881-8/MediaObjects/13059_2016_881_Fig2_HTML.gif)
 
-[分析流程a：Tophat -> Cufflinks]()  
-[分析流程b：Kallisto]()  
-[分析流程c：Trinity -> RSEM]()  
 
 ## 三、高级分析  
 
