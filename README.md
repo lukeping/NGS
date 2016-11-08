@@ -50,8 +50,6 @@ lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-2.R2.fastq.gz -> /bs1/data/NGS
 lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R1.fastq.gz -> /bs1/data/NGS/data/fq/WLD-3.R1.fastq.gz
 lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS/data/fq/WLD-3.R2.fastq.gz
 
-> cd ../db
-> ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 
 
