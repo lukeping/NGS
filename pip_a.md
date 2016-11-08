@@ -12,7 +12,7 @@ $ ln -s /bs1/data/NGS/data/ref/genome.fa ./
 
 **参考基因组建索引**  
 
-**时间估计：5 min**
+>**时间估计：5 min**
 
 ```
 $ hisat2-build genome.fa genome
@@ -32,7 +32,7 @@ lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/d
 ```
 **Mapping**
 
-**时间估计：10 h**
+>**时间估计：10 h**
 
 ```
 $ cd ../
@@ -49,7 +49,7 @@ $ ll ./*.sam
 ```
 **Sort & index BAM files**  
 
-**时间估计：5 h**
+>**时间估计：5 h**
 
 ```
 $ samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
@@ -64,7 +64,7 @@ $ rm *.sam
 ```
 **组装**  
 
-**时间估计：1 h**
+>**时间估计：1 h**
 
 ```
 $ cd ../
