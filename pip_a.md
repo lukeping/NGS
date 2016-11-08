@@ -10,7 +10,7 @@
 > ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
 
-** 参考基因组建索引  
+** 参考基因组建索引**  
 ```
 > hisat2-build genome.fa genome
 ```
