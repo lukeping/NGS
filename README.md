@@ -1,18 +1,22 @@
 # 高通量测序数据分析实践操作
 RNA-Seq分析流程  
+**说明：`>`后为命令，其他的为输出或说明。  
 
 ```
 加载环境变量
-module add bioinfo
+> module add bioinfo
 ```
 实验设计  
-两组样品，一组为野生型，一组为突变体，分别设了3次重复。  
+比较野生型与突变体之间的基因表达差异，一组为野生型，一组为突变体，分别设了3次重复。  
 
 序列文件 | 类型 | 样本编号
 ------- | ----- | ------
-WLD-1.R1.fastq.gz, WLD-1.R2.fastq.gz | Wild-1
-WLD-2.R1.fastq.gz, WLD-2.R2.fastq.gz | Wild-2
-WLD-3.R1.fastq.gz, WLD-3.R2.fastq.gz | Wild-3
+WLD-1.R1.fastq.gz, WLD-1.R2.fastq.gz | 野生型 | Wild-1
+WLD-2.R1.fastq.gz, WLD-2.R2.fastq.gz | 野生型 | Wild-2
+WLD-3.R1.fastq.gz, WLD-3.R2.fastq.gz | 野生型 | Wild-3
+MUT-1.R1.fastq.gz, MUT-1.R2.fastq.gz | 突变体 | Mutant-1
+MUT-2.R1.fastq.gz, MUT-2.R2.fastq.gz | 突变体 | Mutant-2
+MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 
 ## 一、数据前处理  
 
