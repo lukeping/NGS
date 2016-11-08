@@ -23,7 +23,7 @@ MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 
 ## 一、数据前处理  
 
-1. 获取数据
+**1. 获取数据**
 ```
 试验数据服务器存放地址
 /bs1/data/NGS/data/
@@ -57,7 +57,12 @@ lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS
 
 
 
-2. 质控（QC）
+**2. 质控（QC）**
+
+fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
+[质量好的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
+[质量差的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
+
 ```
 > cd 00.fq/
 > mkdir qc
@@ -68,9 +73,6 @@ lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS
 结果文件存放在`qc/`子目录中。  
 >fastqc后如不接任何参数，则是以交互式图形界面运行，需要WindowsX server的支持  
 
-fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
-[质量好的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)  
-[质量差的报告样本](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/bad_sequence_fastqc.html)  
 
 如果发现测序质量比较差，需要作进一步过滤处理的，可以用`trimmomatic`进行处理。  
 [trimmomatic参考使用方法](http://www.usadellab.org/cms/?page=trimmomatic)  
