@@ -1,11 +1,14 @@
 # 有参考基因组，但需要组装新的转录本  
 
-**总流程**  
+**总流程说明**  
+
+`HISAT2` -> `StringTie` -> `Ballgown`  
+
+本试验流程主要参考文献：[Transcript-level expression analysis of RNA-seq experiments with HISAT, StringTie and Ballgown.](http://www.nature.com/nprot/journal/v11/n9/full/nprot.2016.095.html)  
 
 ![Hisat pipeline](./hisatpipeline.png)
 
-`hisat2` -> `StringTie` -> `Ballgown`  
- 说明：结果文件放到`result/01.hisat`目录中。  
+说明：结果文件放到`result/01.hisat`目录中。  
  
 ```
 $ cd result
