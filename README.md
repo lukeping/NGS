@@ -36,6 +36,20 @@ MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 > mkdir work work/00.fq work/db
 > cd work/00.fq
 > ln -s /bs1/data/NGS/data/fq/*.gz ./
+> ls -l
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-1.R1.fastq.gz -> /bs1/data/NGS/data/fq/MUT-1.R1.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-1.R2.fastq.gz -> /bs1/data/NGS/data/fq/MUT-1.R2.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-2.R1.fastq.gz -> /bs1/data/NGS/data/fq/MUT-2.R1.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-2.R2.fastq.gz -> /bs1/data/NGS/data/fq/MUT-2.R2.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-3.R1.fastq.gz -> /bs1/data/NGS/data/fq/MUT-3.R1.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 MUT-3.R2.fastq.gz -> /bs1/data/NGS/data/fq/MUT-3.R2.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-1.R1.fastq.gz -> /bs1/data/NGS/data/fq/WLD-1.R1.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-1.R2.fastq.gz -> /bs1/data/NGS/data/fq/WLD-1.R2.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-2.R1.fastq.gz -> /bs1/data/NGS/data/fq/WLD-2.R1.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-2.R2.fastq.gz -> /bs1/data/NGS/data/fq/WLD-2.R2.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R1.fastq.gz -> /bs1/data/NGS/data/fq/WLD-3.R1.fastq.gz
+lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS/data/fq/WLD-3.R2.fastq.gz
+
 > cd ../db
 > ln -s /bs1/data/NGS/data/ref/genome.fa ./
 ```
@@ -46,7 +60,10 @@ MUT-3.R1.fastq.gz, MUT-3.R2.fastq.gz | 突变体 | Mutant-3
 2. 质控（QC）
 ```
 > cd 00.fq/
+> mkdir qc
 > fastqc -o qc/ *.fastq.gz
+> ll qc/
+
 ```
 结果文件存放在`qc/`子目录中。  
 >fastqc后不接参数，则是以交互式图形界面运行，需要WindowsX server的支持  
