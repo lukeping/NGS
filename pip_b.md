@@ -5,6 +5,11 @@
 1. Kallisto计算每个基因的reads number
 2. sleuth差异基因分析
 
+主要参考文献  
+
+1. https://pachterlab.github.io/kallisto/manual
+2. https://rawgit.com/pachterlab/sleuth/master/inst/doc/intro.html
+
 结果存放在`02.kallisto/`目录中。
 
 ```
@@ -33,7 +38,7 @@ $ kallisto quant -i transdb -o wild_3 ../00.fq/WLD-3.R1.fastq.gz ../00.fq/WLD-3.
 $ kallisto quant -i transdb -o mutant_1 ../00.fq/MUT-1.R1.fastq.gz ../00.fq/MUT-1.R2.fastq.gz
 $ kallisto quant -i transdb -o mutant_2 ../00.fq/MUT-2.R1.fastq.gz ../00.fq/MUT-2.R2.fastq.gz
 $ kallisto quant -i transdb -o mutant_3 ../00.fq/MUT-3.R1.fastq.gz ../00.fq/MUT-3.R2.fastq.gz
-结果文件保存在各子目录中，abundance.tsv
+结果文件保存在各子目录中，文件名为abundance.tsv
 $ ll */abundance.tsv
 -rw-rw-r--. 1 public public 872385 11月  9 09:26 mutant_1/abundance.tsv
 -rw-rw-r--. 1 public public 866615 11月  9 09:33 mutant_2/abundance.tsv
@@ -41,7 +46,7 @@ $ ll */abundance.tsv
 -rw-rw-r--. 1 public public 877250 11月  9 09:05 wild_1/abundance.tsv
 -rw-rw-r--. 1 public public 873866 11月  9 09:13 wild_2/abundance.tsv
 -rw-rw-r--. 1 public public 869286 11月  9 09:21 wild_3/abundance.tsv
-查看文件内容
+查看文件内容及格式
 $ head mutant_1/abundance.tsv
 target_id	length	eff_length	est_counts	tpm
 LongOrf.asmbl_22	1327	1134.14	177.148	5.20047
