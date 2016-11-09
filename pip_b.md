@@ -19,7 +19,23 @@ $ cd 02.kallisto
 >运行时间：~2 min
 
 ```
-$ mkdir db
-$ ln -s /bs1/data/NGS/data/ref/transcripts.fa ./
-$ kallisto index -i transdb transcripts.fa
+$ kallisto index -i transdb /bs1/data/NGS/data/ref/transcripts.fa
 ```
+
+**2. 计算每个基因的reads number (count)**  
+
+>运行时间：~
+
+```
+$ kallisto quant -i transdb -o wild_1 ../00.fq/WLD-1.R1.fastq.gz ../00.fq/WLD-1.R2.fastq.gz
+$ kallisto quant -i transdb -o wild_2 ../00.fq/WLD-2.R1.fastq.gz ../00.fq/WLD-2.R2.fastq.gz
+$ kallisto quant -i transdb -o wild_3 ../00.fq/WLD-3.R1.fastq.gz ../00.fq/WLD-3.R2.fastq.gz
+$ kallisto quant -i transdb -o mutant_1 ../00.fq/MUT-1.R1.fastq.gz ../00.fq/MUT-1.R2.fastq.gz
+$ kallisto quant -i transdb -o mutant_2 ../00.fq/MUT-2.R1.fastq.gz ../00.fq/MUT-2.R2.fastq.gz
+$ kallisto quant -i transdb -o mutant_3 ../00.fq/MUT-3.R1.fastq.gz ../00.fq/MUT-3.R2.fastq.gz
+结果文件保存在各子目录中，abundance.tsv
+$ ls */abundance.tsv
+
+```
+
+
