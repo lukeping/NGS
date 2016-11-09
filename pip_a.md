@@ -66,14 +66,14 @@ $ ll ./*.sam
 
 从日志文件（\*.log）中提取以下信息：  
 
-Sample | number of reads | number of mapped reads 
------- | ------ | ------
-wild_1 |    |   
-wild_2 |   |  
-wild_3 |   |  
-mutant_1 | | 
-mutant_2 | | 
-mutant_3 | | 
+Sample | number of reads | number of mapped reads | uniq mapped reads
+------ | ------ | ------ | ----
+wild_1 |    |   | 
+wild_2 |   |  | 
+wild_3 |   |  | 
+mutant_1 | | | 
+mutant_2 | | | 
+mutant_3 | | | 
 
 
 **Sort & index BAM files**  
