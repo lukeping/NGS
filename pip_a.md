@@ -19,9 +19,9 @@ $ mkdir 01.hisat/db
 
 ```
 
-**参考基因组建索引**  
+**STEP1: 参考基因组建索引**  
 
->**时间估计：5 min**
+>**运行时间：~5 min**
 
 ```
 $ cd 01.hisat/db/
@@ -41,9 +41,9 @@ $ ls -l
 -rw-rw-r--. 1 public public        8 11月  8 08:10 genome.8.ht2
 lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/data/ref/genome.fa
 ```
-**Mapping**
+**STEP2: Mapping**
 
->**时间估计：4 h**
+>**运行时间：~4 h**
 
 ```
 $ cd ../
@@ -76,9 +76,9 @@ mutant_2 | | |
 mutant_3 | | | 
 
 
-**Sort & index BAM files**  
+**STEP3: Sort BAM**  
 
->**时间估计：3 h**
+>**运行时间：~3 h**
 
 ```
 $ samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
@@ -91,21 +91,9 @@ $ samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam -
 $ rm *.sam
 ```
 
-**Mapping质量评估**
+**STEP4: 组装**  
 
-```
-$ qualimap bamqc -bam wild_1.bam -outdir bamqc/wild_1
-$ qualimap bamqc -bam wild_2.bam -outdir bamqc/wild_2
-$ qualimap bamqc -bam wild_3.bam -outdir bamqc/wild_3
-$ qualimap bamqc -bam mutant_1.bam -outdir bamqc/mutant_1
-$ qualimap bamqc -bam mutant_2.bam -outdir bamqc/mutant_2
-$ qualimap bamqc -bam mutant_3.bam -outdir bamqc/mutant_3
-```
-
-
-**组装**  
-
->**时间估计：1 h**
+>**运行时间：~1 h**
 
 ```
 $ cd ../
@@ -122,3 +110,6 @@ $ ls *.gtf > mergelist.txt
 $ stringtie --merge -G /bs1/data/NGS/data/ref/gene.gff -o stringtie_merge.gtf mergelist.txt
 
 ```
+
+**STEP5: **
+
