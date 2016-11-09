@@ -60,7 +60,7 @@ $ ll ./*.sam
 ```
 **Sort & index BAM files**  
 
->**时间估计：5 h**
+>**时间估计：3 h**
 
 ```
 $ samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
