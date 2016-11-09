@@ -89,8 +89,12 @@ $ qualimap bamqc -bam mutant_3.bam -outdir bamqc/mutant_3
 
 Sample | number of reads | number of mapped reads 
 ------ | ------ | ------
-wild 1 |    |   
-
+wild_1 |    |   
+wild_2 |   |  
+wild_3 |   |  
+mutant_1 | | 
+mutant_2 | | 
+mutant_3 | | 
 
 **组装**  
 
