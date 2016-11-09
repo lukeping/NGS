@@ -2,6 +2,13 @@
 
 ## 流程说明  
 
+结果存放在`02.kallisto/`目录中。
+
+```
+$ mkdir 02.kallisto
+$ cd 02.kallisto
+```
+
 1. Kallisto计算每个基因的reads number
 2. sleuth差异基因分析
 
@@ -9,13 +16,6 @@
 
 1. https://pachterlab.github.io/kallisto/manual
 2. https://rawgit.com/pachterlab/sleuth/master/inst/doc/intro.html
-
-结果存放在`02.kallisto/`目录中。
-
-```
-$ mkdir 02.kallisto
-$ cd 02.kallisto
-```
 
 ## 上机操作  
 
