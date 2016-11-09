@@ -58,6 +58,7 @@ $ hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R
 $ ll ./*.sam
 
 ```
+
 **Sort & index BAM files**  
 
 >**时间估计：3 h**
@@ -71,8 +72,26 @@ $ samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam -
 $ samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
 删除中间文件
 $ rm *.sam
+```
+
+**Mapping质量评估**
 
 ```
+$ qualimap bamqc -bam wild_1.bam -outdir bamqc/wild_1
+$ qualimap bamqc -bam wild_2.bam -outdir bamqc/wild_2
+$ qualimap bamqc -bam wild_3.bam -outdir bamqc/wild_3
+$ qualimap bamqc -bam mutant_1.bam -outdir bamqc/mutant_1
+$ qualimap bamqc -bam mutant_2.bam -outdir bamqc/mutant_2
+$ qualimap bamqc -bam mutant_3.bam -outdir bamqc/mutant_3
+```
+
+从结果文件中提取以下信息：  
+
+Sample | number of reads | number of mapped reads 
+------ | ------ | ------
+wild 1 |    |   
+
+
 **组装**  
 
 >**时间估计：1 h**
