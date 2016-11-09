@@ -49,15 +49,32 @@ lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/d
 $ cd ../
 $ mkdir mapping
 $ cd mapping
-$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam
+$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam 2> wild_1.log
 $ hisat2 -x ../db/genome -1 ../../00.fq/WLD-2.R1.fastq.gz -2 ../../00.fq/WLD-2.R2.fastq.gz -S wild_2.sam
 $ hisat2 -x ../db/genome -1 ../../00.fq/WLD-3.R1.fastq.gz -2 ../../00.fq/WLD-3.R2.fastq.gz -S wild_3.sam
 $ hisat2 -x ../db/genome -1 ../../00.fq/MUT-1.R1.fastq.gz -2 ../../00.fq/MUT-1.R2.fastq.gz -S mutant_1.sam
 $ hisat2 -x ../db/genome -1 ../../00.fq/MUT-2.R1.fastq.gz -2 ../../00.fq/MUT-2.R2.fastq.gz -S mutant_2.sam
 $ hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R2.fastq.gz -S mutant_3.sam
 $ ll ./*.sam
-
+-rw-rw-r--. 1 public public  8058072080 11月  8 12:03 mutant_1.sam
+-rw-rw-r--. 1 public public  9937287057 11月  8 12:39 mutant_2.sam
+-rw-rw-r--. 1 public public 11189770206 11月  8 13:21 mutant_3.sam
+-rw-rw-r--. 1 public public  9324884413 11月  9 10:01 wild_1.sam
+-rw-rw-r--. 1 public public 10420117029 11月  8 10:50 wild_2.sam
+-rw-rw-r--. 1 public public 10810699663 11月  8 11:30 wild_3.sam
 ```
+
+从日志文件（\*.log）中提取以下信息：  
+
+Sample | number of reads | number of mapped reads 
+------ | ------ | ------
+wild_1 |    |   
+wild_2 |   |  
+wild_3 |   |  
+mutant_1 | | 
+mutant_2 | | 
+mutant_3 | | 
+
 
 **Sort & index BAM files**  
 
@@ -85,16 +102,6 @@ $ qualimap bamqc -bam mutant_2.bam -outdir bamqc/mutant_2
 $ qualimap bamqc -bam mutant_3.bam -outdir bamqc/mutant_3
 ```
 
-从结果文件中提取以下信息：  
-
-Sample | number of reads | number of mapped reads 
------- | ------ | ------
-wild_1 |    |   
-wild_2 |   |  
-wild_3 |   |  
-mutant_1 | | 
-mutant_2 | | 
-mutant_3 | | 
 
 **组装**  
 
