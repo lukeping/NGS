@@ -111,5 +111,52 @@ $ stringtie --merge -G /bs1/data/NGS/data/ref/gene.gff -o stringtie_merge.gtf me
 
 ```
 
-**STEP5: **
+**STEP5: gff compare**  
 
+>**运行时间：~ 2 min**
+
+```
+$ mkdir gffcomp
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_1 wild_1.gtf
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_2 wild_2.gtf
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_3 wild_3.gtf
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_1 mutant_1.gtf
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_2 mutant_2.gtf
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_3 mutant_3.gtf
+$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/merged stringtie_merge.gtf
+```
+
+结果文件存放在`gffcomp/`目录中。  
+```
+$ ll gffcomp/
+总用量 224472
+-rw-rw-r--. 1 public public 45127069 11月 10 17:27 merged.annotated.gtf
+-rw-rw-r--. 1 public public  1964885 11月 10 17:27 merged.loci
+-rw-rw-r--. 1 public public     1218 11月 10 17:27 merged.stats
+-rw-rw-r--. 1 public public  5183261 11月 10 17:27 merged.tracking
+-rw-rw-r--. 1 public public 24321868 11月 10 17:28 mutant_1.annotated.gtf
+-rw-rw-r--. 1 public public  1430041 11月 10 17:28 mutant_1.loci
+-rw-rw-r--. 1 public public     1205 11月 10 17:28 mutant_1.stats
+-rw-rw-r--. 1 public public  3242845 11月 10 17:28 mutant_1.tracking
+-rw-rw-r--. 1 public public 24387501 11月 10 17:28 mutant_2.annotated.gtf
+-rw-rw-r--. 1 public public  1403361 11月 10 17:28 mutant_2.loci
+-rw-rw-r--. 1 public public     1205 11月 10 17:28 mutant_2.stats
+-rw-rw-r--. 1 public public  3133168 11月 10 17:28 mutant_2.tracking
+-rw-rw-r--. 1 public public 25829346 11月 10 17:28 mutant_3.annotated.gtf
+-rw-rw-r--. 1 public public  1451284 11月 10 17:28 mutant_3.loci
+-rw-rw-r--. 1 public public     1205 11月 10 17:28 mutant_3.stats
+-rw-rw-r--. 1 public public  3305759 11月 10 17:28 mutant_3.tracking
+-rw-rw-r--. 1 public public 24992318 11月 10 17:28 wild_1.annotated.gtf
+-rw-rw-r--. 1 public public  1436529 11月 10 17:28 wild_1.loci
+-rw-rw-r--. 1 public public     1199 11月 10 17:28 wild_1.stats
+-rw-rw-r--. 1 public public  3312782 11月 10 17:28 wild_1.tracking
+-rw-rw-r--. 1 public public 25012577 11月 10 17:28 wild_2.annotated.gtf
+-rw-rw-r--. 1 public public  1435038 11月 10 17:28 wild_2.loci
+-rw-rw-r--. 1 public public     1199 11月 10 17:28 wild_2.stats
+-rw-rw-r--. 1 public public  3235620 11月 10 17:28 wild_2.tracking
+-rw-rw-r--. 1 public public 24639874 11月 10 17:28 wild_3.annotated.gtf
+-rw-rw-r--. 1 public public  1393727 11月 10 17:28 wild_3.loci
+-rw-rw-r--. 1 public public     1199 11月 10 17:28 wild_3.stats
+-rw-rw-r--. 1 public public  3151156 11月 10 17:28 wild_3.tracking
+
+```
