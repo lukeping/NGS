@@ -117,13 +117,13 @@ $ stringtie --merge -G /bs1/data/NGS/data/ref/gene.gff -o stringtie_merge.gtf me
 
 ```
 $ mkdir gffcomp
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_1 wild_1.gtf
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_2 wild_2.gtf
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_3 wild_3.gtf
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_1 mutant_1.gtf
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_2 mutant_2.gtf
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_3 mutant_3.gtf
-$ gffcompare -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/merged stringtie_merge.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_1 wild_1.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_2 wild_2.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/wild_3 wild_3.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_1 mutant_1.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_2 mutant_2.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/mutant_3 mutant_3.gtf
+$ gffcompare -T -r /bs1/data/NGS/data/ref/gene.gff -o gffcomp/merged stringtie_merge.gtf
 ```
 
 结果文件存放在`gffcomp/`目录中。  
@@ -160,3 +160,15 @@ $ ll gffcomp/
 -rw-rw-r--. 1 public public  3151156 11月 10 17:28 wild_3.tracking
 
 ```
+
+根据`gffcompare`结果，统计以下信息：  
+
+Sample id | Number of assembled genes | Novel genes | Transcripts matching annotation | Novel transcripts
+--- | --- | --- | --- | --- 
+wild_1 | | | | 
+wild_2 | | | | 
+wild_3 | | | | 
+mutant_1 | | | | 
+mutant_2 | | | | 
+mutant_3 | | | | 
+
