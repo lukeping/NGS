@@ -65,10 +65,38 @@ sleuth是R语言包，需要R语言环境。
 
 ```
 $ R
-> basedir <- getwd()
-> sample_id <- dir(file.path(basedir,"kallisto"))
-> kal_dirs <- sapply(sample_id, function(id) file.path(basedir, id))
-> s2c <- data.frame(sample=c("wild_1","wild_2","wild_3","mutant_1","mutant_2","mutant_3"),  condition=c("wild","wild","wild","mutant","mutant","mutant") )
+> setwd("~/wang/ngs/02.kallisto")
+> library("sleuth")
+
+> ref_dir <- "/bs1/data/NGS/data/ref"
+> base_dir <- getwd()
+> sample_id <- dir(file.path(base_dir, "kallisto"))
+> kal_dirs <- sapply(sample_id, function(id) file.path(base_dir,"kallisto", id))
+> s2c <- data.frame(sample=c("mutant_1","mutant_2","mutant_3","wild_1","wild_2","wild_3"),  
+                  condition=c("mutant","mutant","mutant","wild","wild","wild"))
+> s2c <- dplyr::mutate(s2c, path = kal_dirs)
+> print(s2c)
+
+# Transcripts level
+
+> t2g <- read.table(file.path(ref_dir, "tid2gid.txt"), header = T)
+> so <- sleuth_prep(s2c, ~ condition, target_mapping = t2g)
+> so <- sleuth_fit(so)
+> so <- sleuth_fit(so, ~1, 'reduced')
+> so <- sleuth_lrt(so, 'reduced', 'full')
+#sleuth_live(so)
+> results_table <- sleuth_results(so, 'reduced:full', test_type = 'lrt')
+> write.csv(results_table, file = "results_table.csv")
+
+# Gene level
+> so.gene <- sleuth_prep(s2c, ~condition, target_mapping = t2g,
+                  aggregation_column = 'gene_id')
+> so.gene <- sleuth_fit(so.gene)
+> so.gene <- sleuth_fit(so.gene, ~1, 'reduced')
+> so.gene <- sleuth_lrt(so.gene, 'reduced', 'full')
+#sleuth_live(so.gene)
+> results_table.gene <- sleuth_results(so.gene, 'reduced:full', test_type = 'lrt')
+> write.csv(results_table.gene, file = "results_table.gene.csv")
 
 ```
 
