@@ -171,4 +171,10 @@ wild_3 | | | |
 mutant_1 | | | | 
 mutant_2 | | | | 
 mutant_3 | | | | 
+merged  | | | | 
 
+**STEP 6: Estimate transcript abundances and create table counts for Ballgown**
+
+```
+
+```
