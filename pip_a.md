@@ -176,5 +176,13 @@ merged  | | | |
 **STEP 6: Estimate transcript abundances and create table counts for Ballgown**
 
 ```
+$ cd ../
+$ mkdir ballgown
+$ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/wild_1.gtf mapping/wild_1.bam
+$ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/wild_2.gtf mapping/wild_2.bam
+$ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/wild_3.gtf mapping/wild_3.bam
+$ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/mutant_1.gtf mapping/mutant_1.bam
+$ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/mutant_2.gtf mapping/mutant_2.bam
+$ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/mutant_3.gtf mapping/mutant_3.bam
 
 ```
