@@ -200,3 +200,40 @@ $ R
 
 ```
 
+**Count reads number using htseq-count**  
+
+```
+$ mkdir count
+$ cd count
+$ ln -s ../assem/stringtie_merge.gtf ./
+$ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/wild_1.bam stringtie_merge.gtf > wild_1.count
+$ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/wild_2.bam stringtie_merge.gtf > wild_2.count
+$ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/wild_3.bam stringtie_merge.gtf > wild_3.count
+$ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/mutant_1.bam stringtie_merge.gtf > mutant_1.count
+$ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/mutant_2.bam stringtie_merge.gtf > mutant_2.count
+$ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/mutant_3.bam stringtie_merge.gtf > mutant_3.count
+$ paste wild_1.count wild_2.count wild_3.count mutant_1.count mutant_2.count mutant_3.count | cut -f 1,2,4,6,8,10,12 | head -n -6 > count.txt
+$ sed -i '1i\gene_id\twild_1\twild_2\twild_3\tmutant_1\tmutant_2\tmutant_3\n' count.txt
+$ 
+```
+
+**DE analysis with DESeq2**  
+
+```
+$ cd ..
+$ mkdir DE
+$ cd DE
+$ ln -s ../count/count.txt ./
+$ R
+> library(DESeq2)
+> data <- read.table("count.txt",head=T,row.names=1,sep="\t")
+> colData <- data.frame(sample_id = c("wild_1", "wild_2", "wild_3", "mutant_1", "mutant_2", "mutant_3"),
+                        group = c(rep("wild",3), rep("mutant",3)))
+> colData$group <- relevel(colData$group,"wild")
+> dds <- DESeqDataSetFromMatrix(countData = data, colData = colData, design = ~ group)
+> dds <- DESeq(dds, minReplicatesForReplace = Inf)
+> res <- results(dds)
+> write.csv(counts(dds, normalized = T), file = "counts.norm.csv")
+> write.csv(as.data.frame(res[order(res$padj),]),file="DEseqAll.csv")
+
+```
