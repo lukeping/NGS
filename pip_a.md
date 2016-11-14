@@ -229,6 +229,7 @@ $ R
 > data <- read.table("count.txt",head=T,row.names=1,sep="\t")
 > colData <- data.frame(sample_id = c("wild_1", "wild_2", "wild_3", "mutant_1", "mutant_2", "mutant_3"),
                         group = c(rep("wild",3), rep("mutant",3)))
+> row.names(colData) <- colData$sample_id                         
 > colData$group <- relevel(colData$group,"wild")
 > dds <- DESeqDataSetFromMatrix(countData = data, colData = colData, design = ~ group)
 > dds <- DESeq(dds, minReplicatesForReplace = Inf)
