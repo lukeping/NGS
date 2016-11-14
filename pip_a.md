@@ -175,7 +175,7 @@ merged  | | | |
 
 **STEP 6: Estimate transcript abundances and create table counts for Ballgown**
 
->**运行时间：30 min**  
+>**运行时间：~ 30 min**  
 
 ```
 $ cd ../
@@ -188,3 +188,15 @@ $ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/mutant_2/mutant_2.gtf
 $ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/mutant_3/mutant_3.gtf mapping/mutant_3.bam
 
 ```
+结果存放在ballgown。  
+
+**STEP 7: Run the differential expression analysis protocol**  
+
+>**运行时间：~ 30 min**  
+
+```
+$ R
+> library(ballgown)
+
+```
+
