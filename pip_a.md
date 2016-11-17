@@ -246,7 +246,7 @@ $ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/mutant_1.bam stringti
 $ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/mutant_2.bam stringtie_merge.gtf > mutant_2.count
 $ htseq-count -f bam -r pos -s no -i gene_id -q ../mapping/mutant_3.bam stringtie_merge.gtf > mutant_3.count
 $ paste wild_1.count wild_2.count wild_3.count mutant_1.count mutant_2.count mutant_3.count | cut -f 1,2,4,6,8,10,12 | head -n -5 > count.txt
-$ sed -i '1i\gene_id\twild_1\twild_2\twild_3\tmutant_1\tmutant_2\tmutant_3\n' count.txt
+$ sed -i '1i\gene_id\twild_1\twild_2\twild_3\tmutant_1\tmutant_2\tmutant_3' count.txt
 $ 
 ```
 
