@@ -6,8 +6,12 @@
 **说明：`$`后为命令，其他的为输出或说明。**  
 
 ```
+ssh登录服务器172.28.137.55，用户名：ngs
+
 加载环境变量
 $ module add bioinfo
+
+对于计算量较大的任务，请不要在登录节点上直接运行，要用qsub提交任务
 ```
 ## 试验设计 与 试验目的  
 比较野生型与突变体之间的基因表达差异，一组为野生型，一组为突变体，分别设了3次重复。  
@@ -70,7 +74,26 @@ fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/]
 ```
 $ cd 00.fq/
 $ mkdir qc
-$ fastqc -o qc/ *.fastq.gz
+```
+
+新建一个脚本文件，work.sh，包含以下内容：  
+
+```
+#!/bin/bash
+#$ -S /bin/bash
+#$ -cwd
+module add bioinfo
+fastqc -o qc/ *.fastq.gz
+```
+
+然后用`qsub work.sh`提交任务。用`qstat`查看job运行状态。  
+
+```
+$ qstat
+job-ID  prior   name       user         state submit/start at     queue                          slots ja-task-ID 
+-----------------------------------------------------------------------------------------------------------------
+     41 0.55500 work.sh    ngs          r     11/17/2016 20:41:45 all.q@c3                           1        
+任务结束后，结果文件存在qc文件夹下
 $ ll qc/
 总用量 8752
 -rw-rw-r--. 1 public public 334917 11月  8 09:05 MUT-1.R1_fastqc.html
