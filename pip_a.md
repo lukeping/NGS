@@ -49,12 +49,26 @@ lrwxrwxrwx. 1 public public       32 11月  8 08:06 genome.fa -> /bs1/data/NGS/d
 $ cd ../
 $ mkdir mapping
 $ cd mapping
-$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam 2> wild_1.log
-$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-2.R1.fastq.gz -2 ../../00.fq/WLD-2.R2.fastq.gz -S wild_2.sam
-$ hisat2 -x ../db/genome -1 ../../00.fq/WLD-3.R1.fastq.gz -2 ../../00.fq/WLD-3.R2.fastq.gz -S wild_3.sam
-$ hisat2 -x ../db/genome -1 ../../00.fq/MUT-1.R1.fastq.gz -2 ../../00.fq/MUT-1.R2.fastq.gz -S mutant_1.sam
-$ hisat2 -x ../db/genome -1 ../../00.fq/MUT-2.R1.fastq.gz -2 ../../00.fq/MUT-2.R2.fastq.gz -S mutant_2.sam
-$ hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R2.fastq.gz -S mutant_3.sam
+```
+创建一个脚本文件，`work.sh`，包含以下内容：  
+
+```
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N hisat2
+#$ -cwd
+module add bioinfo
+hisat2 -x ../db/genome -1 ../../00.fq/WLD-1.R1.fastq.gz -2 ../../00.fq/WLD-1.R2.fastq.gz -S wild_1.sam 2> wild_1.log
+hisat2 -x ../db/genome -1 ../../00.fq/WLD-2.R1.fastq.gz -2 ../../00.fq/WLD-2.R2.fastq.gz -S wild_2.sam 2> wild_2.log
+hisat2 -x ../db/genome -1 ../../00.fq/WLD-3.R1.fastq.gz -2 ../../00.fq/WLD-3.R2.fastq.gz -S wild_3.sam 2> wild_3.log
+hisat2 -x ../db/genome -1 ../../00.fq/MUT-1.R1.fastq.gz -2 ../../00.fq/MUT-1.R2.fastq.gz -S mutant_1.sam 2> mutant_1.log
+hisat2 -x ../db/genome -1 ../../00.fq/MUT-2.R1.fastq.gz -2 ../../00.fq/MUT-2.R2.fastq.gz -S mutant_2.sam 2> mutant_2.log
+hisat2 -x ../db/genome -1 ../../00.fq/MUT-3.R1.fastq.gz -2 ../../00.fq/MUT-3.R2.fastq.gz -S mutant_3.sam 2> mutant_3.log
+```
+
+用`qsub`提交任务，`qsub work.sh`，任务结束后结果（sam文件）存放在当前目录。  
+
+```
 $ ll ./*.sam
 -rw-rw-r--. 1 public public  8058072080 11月  8 12:03 mutant_1.sam
 -rw-rw-r--. 1 public public  9937287057 11月  8 12:39 mutant_2.sam
@@ -80,13 +94,32 @@ mutant_3 | | |
 
 >**运行时间：~3 h**
 
+创建脚本文件`sort.sh`，包含以下内容：  
+
 ```
-$ samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
-$ samtools view -b wild_2.sam | samtools sort -o wild_2.bam - 
-$ samtools view -b wild_3.sam | samtools sort -o wild_3.bam - 
-$ samtools view -b mutant_1.sam | samtools sort -o mutant_1.bam - 
-$ samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam - 
-$ samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N bamsort
+#$ -cwd
+module add bioinfo
+samtools view -b wild_1.sam | samtools sort -o wild_1.bam - 
+samtools view -b wild_2.sam | samtools sort -o wild_2.bam - 
+samtools view -b wild_3.sam | samtools sort -o wild_3.bam -
+samtools view -b mutant_1.sam | samtools sort -o mutant_1.bam - 
+samtools view -b mutant_2.sam | samtools sort -o mutant_2.bam -
+samtools view -b mutant_3.sam | samtools sort -o mutant_3.bam - 
+```
+
+用`qsub`提交任务，`qsub sort.sh`，任务完成后生成的bam文件存放在当前目录下。为节约空间，将中间sam文件删除。  
+
+```
+$ ll *.bam
+-rw-rw-r--. 1 ngs ngs 1199392710 11月 16 21:52 mutant_1.bam
+-rw-rw-r--. 1 ngs ngs 1827450280 11月 16 21:49 mutant_2.bam
+-rw-rw-r--. 1 ngs ngs 2091146590 11月 16 21:59 mutant_3.bam
+-rw-rw-r--. 1 ngs ngs 1381702851 11月 16 22:02 wild_1.bam
+-rw-rw-r--. 1 ngs ngs 1982937543 11月 16 21:53 wild_2.bam
+-rw-rw-r--. 1 ngs ngs 2092115115 11月 16 21:49 wild_3.bam
 删除中间文件
 $ rm *.sam
 ```
