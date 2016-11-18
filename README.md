@@ -20,7 +20,9 @@ $ module add bioinfo
   |  |  |  |  |  
 --- | --- | --- | --- | --- | ---
 ls | cd | mv | rm | pwd | top
-ps | grep | | | |
+ps | grep | kill | file | tar | cat
+less | chmod | chown | vim (vi) | time
+cp | scp | ln | mkdir | wget | git
 
 
 
