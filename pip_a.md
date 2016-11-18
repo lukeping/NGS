@@ -2,7 +2,7 @@
 
 ## 总流程说明  
 
-`HISAT2` -> `StringTie` -> `Ballgown`  
+`HISAT2` -> `StringTie` -> `Ballgown`(或)`htseq-count + DESeq2`  
 
 本试验流程主要参考文献：[Transcript-level expression analysis of RNA-seq experiments with HISAT, StringTie and Ballgown.](http://www.nature.com/nprot/journal/v11/n9/full/nprot.2016.095.html)  
 
