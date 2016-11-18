@@ -260,6 +260,8 @@ $ R
 
 **Count reads number using htseq-count**  
 
+>运行时间：~ 6 h
+
 ```
 $ mkdir count
 $ cd count
