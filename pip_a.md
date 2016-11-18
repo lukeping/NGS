@@ -230,6 +230,31 @@ $ stringtie -e -B -G assem/stringtie_merge.gtf -o ballgown/mutant_3/mutant_3.gtf
 ```
 $ R
 > library(ballgown)
+> library(genefilter)
+> library(dplyr)
+> library(devtools)
+
+> bg <- ballgown(samples = c("ballgown/wild_1", "ballgown/wild_2", "ballgown/wild_3",
+                           "ballgown/mutant_1", "ballgown/mutant_2", "ballgown/mutant_3"))
+> pData(bg) <- data.frame(id=sampleNames(bg), group = c(rep("wild", 3), rep("mutant", 3)))
+> bg_filt <- subset(bg, "rowVars(texpr(bg)) > 1", genomesubset=TRUE)
+> results_transcripts <- stattest(bg_filt, 
+                                feature = "transcript", 
+                                covariate = "group", 
+                                getFC = TRUE, 
+                                meas = "FPKM")
+> results_genes <- stattest(bg_filt,
+                          feature = "gene",
+                          covariate = "group",
+                          getFC = TRUE,
+                          meas = "FPKM")
+
+> results_transcripts <- data.frame(geneName = ballgown::geneNames(bg_filt), 
+                                  geneIDs = ballgown::geneIDs(bg_filt),
+                                  results_transcripts)
+
+> write.csv(arrange(results_genes, pval), file = "gene_results.csv")
+> write.csv(arrange(results_transcripts,pval), file = "transcript_results.csv")
 
 ```
 
@@ -271,3 +296,5 @@ $ R
 > write.csv(as.data.frame(res[order(res$padj),]),file="DEseqAll.csv")
 
 ```
+
+**比较ballgown和DESeq2结果之间的差异**  
