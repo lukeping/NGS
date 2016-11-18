@@ -25,11 +25,12 @@ Trinity --no_bowtie --seqType fq --max_memory 20G \
 	--SS_lib_type RF --CPU 8 \
 	--normalize_reads \
 	--left /bs1/data/NGS/data/fq/WLD-1.R1.fastq.gz,/bs1/data/NGS/data/fq/WLD-2.R1.fastq.gz,/bs1/data/NGS/data/fq/WLD-3.R1.fastq.gz,/bs1/data/NGS/data/fq/MUT-1.R1.fastq.gz,/bs1/data/NGS/data/fq/MUT-2.R1.fastq.gz,/bs1/data/NGS/data/fq/MUT-3.R1.fastq.gz\
-	--right /bs1/data/NGS/data/fq/WLD-1.R2.fastq.gz,/bs1/data/NGS/data/fq/WLD-2.R2.fastq.gz,/bs1/data/NGS/data/fq/WLD-3.R2.fastq.gz,/bs1/data/NGS/data/fq/MUT-1.R2.fastq.gz,/bs1/data/NGS/data/fq/MUT-2.R2.fastq.gz,/bs1/data/NGS/data/fq/MUT-3.R2.fastq.gz\
+	--right /bs1/data/NGS/data/fq/WLD-1.R2.fastq.gz,/bs1/data/NGS/data/fq/WLD-2.R2.fastq.gz,/bs1/data/NGS/data/fq/WLD-3.R2.fastq.gz,/bs1/data/NGS/data/fq/MUT-1.R2.fastq.gz,/bs1/data/NGS/data/fq/MUT-2.R2.fastq.gz,/bs1/data/NGS/data/fq/MUT-3.R2.fastq.gz
 ```
 
 用`qsub`提交任务，`qsub work.sh`  
 
+**STEP 2: 
 
 ##参考资料  
 
