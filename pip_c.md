@@ -95,7 +95,8 @@ module add bioinfo
 	--aln_method bowtie \
 	--trinity_mode \
 	--prep_reference \
-	--output_dir RSEM_wild_1
+	--output_dir RSEM_out \
+	--output_prefix wild_1
 /home/biosoft/trinityrnaseq-2.2.0/util/align_and_estimate_abundance.pl \
         --transcripts trinity_out_dir/Trinity.fasta \
         --seqType fq \
@@ -105,7 +106,8 @@ module add bioinfo
         --est_method RSEM \
         --aln_method bowtie \
         --trinity_mode \
-        --output_dir RSEM_wild_2
+        --output_dir RSEM_out \
+	--output_prefix wild_2
 /home/biosoft/trinityrnaseq-2.2.0/util/align_and_estimate_abundance.pl \
         --transcripts trinity_out_dir/Trinity.fasta \
         --seqType fq \
@@ -115,7 +117,8 @@ module add bioinfo
         --est_method RSEM \
         --aln_method bowtie \
         --trinity_mode \
-        --output_dir RSEM_wild_3
+        --output_dir RSEM_out \
+	--output_prefix wild_3
 /home/biosoft/trinityrnaseq-2.2.0/util/align_and_estimate_abundance.pl \
         --transcripts trinity_out_dir/Trinity.fasta \
         --seqType fq \
@@ -125,7 +128,8 @@ module add bioinfo
         --est_method RSEM \
         --aln_method bowtie \
         --trinity_mode \
-        --output_dir RSEM_mutant_1
+        --output_dir RSEM_out \
+	--output_prefix mutant_1
 /home/biosoft/trinityrnaseq-2.2.0/util/align_and_estimate_abundance.pl \
         --transcripts trinity_out_dir/Trinity.fasta \
         --seqType fq \
@@ -135,7 +139,8 @@ module add bioinfo
         --est_method RSEM \
         --aln_method bowtie \
         --trinity_mode \
-        --output_dir RSEM_mutant_2
+        --output_dir RSEM_out \
+	--output_prefix mutant_2
 /home/biosoft/trinityrnaseq-2.2.0/util/align_and_estimate_abundance.pl \
         --transcripts trinity_out_dir/Trinity.fasta \
         --seqType fq \
@@ -145,11 +150,30 @@ module add bioinfo
         --est_method RSEM \
         --aln_method bowtie \
         --trinity_mode \
-        --output_dir RSEM_mutant_3
+        --output_dir RSEM_out \
+	--output_prefix mutant_3
 ```
 
 用`qsub`提交任务，`qsub rsem.sh`。  
 任务完成后检查结果文件。  
+
+**STEP 4: 合并**  
+
+```
+$ /home/biosoft/trinityrnaseq-2.2.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --out_prefix RSEM_gene \
+	RSEM_out/wild_1.genes.results RSEM_out/wild_2.genes.results RSEM_out/wild_3.genes.results \
+	RSEM_out/mutant_1.genes.results RSEM_out/mutant_2.genes.results RSEM_out/mutant_3.genes.results
+$ /home/biosoft/trinityrnaseq-2.2.0/util/abundance_estimates_to_matrix.pl --est_method RSEM --out_prefix RSEM_trans \
+	RSEM_out/wild_1.isoforms.results RSEM_out/wild_2.isoforms.results RSEM_out/wild_3.isoforms.results \
+	RSEM_out/mutant_1.isoforms.results RSEM_out/mutant_2.isoforms.results RSEM_out/mutant_3.isoforms.results 
+
+```
+
+**STEP 5: DE分析**  
+
+参照DESeq2分析  
+
+
 
 ##参考资料  
 
