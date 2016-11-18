@@ -18,7 +18,7 @@ $ module add bioinfo
 掌握以下常用的Linux命令：
 
   |  |  |  |  |   |   
---- | --- | --- | --- | --- | ---  | ---
+--- | --- | --- | --- | --- | ---  
 ls | cd | mv | rm | pwd | top
 ps | grep | kill | file | tar | cat
 less | more | chmod | chown | vim (vi) | time
