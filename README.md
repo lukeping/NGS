@@ -105,6 +105,44 @@ lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS
 
 ```
 
+#### 工作目录结构参考  
+
+/bs1/user/ngs/wang/ngs
+├── 00.fq
+│   └── qc
+├── 01.hisat
+│   ├── assem
+│   │   └── gffcomp
+│   ├── ballgown
+│   │   ├── mutant_1
+│   │   ├── mutant_2
+│   │   ├── mutant_3
+│   │   ├── wild_1
+│   │   ├── wild_2
+│   │   └── wild_3
+│   ├── count
+│   ├── db
+│   ├── DE
+│   └── mapping
+├── 02.kallisto
+│   └── kallisto
+│       ├── mutant_1
+│       ├── mutant_2
+│       ├── mutant_3
+│       ├── wild_1
+│       ├── wild_2
+│       └── wild_3
+└── 03.trinity
+    ├── RSEM_out
+    │   ├── mutant_1.stat
+    │   ├── mutant_2.stat
+    │   ├── mutant_3.stat
+    │   ├── wild_1.stat
+    │   ├── wild_2.stat
+    │   └── wild_3.stat
+    └── trinity_out_dir
+    
+    
 **质控（QC）**
 
 fastqc使用请参考，[http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/](http://www.bioinformatics.bbsrc.ac.uk/projects/fastqc/)  
