@@ -106,7 +106,7 @@ lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS
 ```
 
 #### 工作目录结构参考  
-
+```
 /bs1/user/ngs/wang/ngs
 ├── 00.fq
 │   └── qc
@@ -141,7 +141,7 @@ lrwxrwxrwx. 1 public public 39 11月  8 09:00 WLD-3.R2.fastq.gz -> /bs1/data/NGS
     │   ├── wild_2.stat
     │   └── wild_3.stat
     └── trinity_out_dir
-    
+```    
     
 **质控（QC）**
 
