@@ -93,6 +93,7 @@ $ qsub work.sh
 
 **比较canu和mecat运行时间和组装**
 
+
 ### 3.环化（circle）
 细菌基因组一般为环状分子，但canu或mecat组装时没有考虑基因组是否为环状，需人工检查contig首尾是否有overlap，也可借助于circlator软件来完成。
 由于本次实验用canu和mecat都得到1条contig，我们选mecat组装结果作后续分析。
@@ -149,6 +150,9 @@ $ cd annotation
 $ ln -s ../quiver/test.quiver.fasta ./genome.fa
 $ prokka --outdir GENOME --prefix XXXXX genome.fasta
 ```
+
+### 6. 作业
+查看两个组装软件的结果，dotplots图，用[gepard](http://cube.univie.ac.at/gepard)作dotplots图
 
 ## 参考资料
 1. [canu](https://github.com/marbl/canu)
