@@ -140,7 +140,11 @@ $ cd 工作目录
 $ /home/biosoft/smrtanalysis/smrtcmds/bin/smrtshell
 $ quiver -j 4 reads.cmp.h5 -r 06.fixstart.fasta -o test.quiver.fasta  -o test.quiver.gff -o test.quiver.fastq
 ```
-Polish完
+Polish完成之后检查test.quiver.fasta序列文件。
+
+### 5. Genome annotation
+
+
 
 ## 参考资料
 1. [canu](https://github.com/marbl/canu)
