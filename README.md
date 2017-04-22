@@ -33,6 +33,7 @@ $ module add bioinfo
 #!/bin/bash
 #$ -S /bin/bash
 #$ -N JobName
+#$ -j y
 #$ -cwd
 sleep 60
 ```
