@@ -37,7 +37,7 @@ $ ln -s /bs1/data/NGS/pacbio/* data/
 
 ```
 ### 2. 组装
-** canu组装流程 **
+**canu组装流程**
 
 ```
 $ cd assem
@@ -59,7 +59,7 @@ $ qsub work.sh
 ```
 任务完成后结果存放在output目录中。主要结果文件为test.contigs.fasta
 
-** mecat组装流程 **
+**mecat组装流程**
 ```
 # 回到工作目录
 $ cd ../
@@ -88,9 +88,13 @@ mecat2canu -assemble -p test -d output \
 ```
 任务完成后其结果存放在output目录中。主要结果文件为test.contigs.fasta 
 
-** 比较canu和mecat运行时间和组装 **
+**比较canu和mecat运行时间和组装**
 
-
+### 3.环化（circle）
+由于
 
 
 ## 参考资料
+1. [canu](https://github.com/marbl/canu)
+2. [mecat](https://github.com/xiaochuanle/MECAT)
+
