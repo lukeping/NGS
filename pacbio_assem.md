@@ -40,6 +40,7 @@ $ ln -s /bs1/data/NGS/pacbio/* data/
 **canu组装流程**
 
 ```
+# 回到工作目录
 $ cd assem
 # 新建一个工作脚本文件work.sh，包含下列内容：
 #!/bin/bash
@@ -62,7 +63,6 @@ $ qsub work.sh
 **mecat组装流程**
 ```
 # 回到工作目录
-$ cd ../
 $ mkdir mecat
 # merge the reads to one file
 $ cat ../data/*.fastq > reads.fastq
@@ -76,7 +76,7 @@ $ cat ../data/*.fastq > reads.fastq
 module add bioinfo
 mecat2pw -j 0 -d reads.fastq -o reads.fastq.pm.can -w wrk_dir -t 4
 mecat2cns -i 0 -t 4 reads.fastq.pm.can reads.fastq corrected_reads.fasta
-extract_sequences corrected_reads.fasta corrected_reads_25x.fasta 6500000 25
+extract_sequences corrected_reads.fasta corrected_reads_25x 6500000 25
 mecat2canu -assemble -p test -d output \
 	genomeSize=6500000 \
 	ErrorRate=0.02 \
@@ -98,7 +98,6 @@ $ qsub work.sh
 由于本次实验用canu和mecat都得到1条contig，我们选mecat组装结果作后续分析。
 ```
 # 回到工作目录
-$ cd ../../work
 $ mkdir circle
 $ cd circle
 $ ln -s ../mecat/output/test.contigs.fasta ./
@@ -122,7 +121,6 @@ $ qsub work.sh
 三代测序错误率较高，一般组装后需要进行polish，PacBio序列推荐使用Quiver进行polish。
 ```
 # 回到工作目录
-$ cd ../../work
 $ mkdir quiver
 $ cd quiver
 $ ln -s ../circle/06.fixstart.fasta ./
@@ -130,13 +128,13 @@ $ ln -s ../circle/06.fixstart.fasta ./
 # 新建一个输入文件列表文件
 $ ls /bs1/data/NGS/pacbio/*.h5 > input.fofn
 $ ssh c8 或者ssh c2 或者ssh c3
-$ cd 工作目录
+$ 回到工作目录
 $ /home/biosoft/smrtanalysis/smrtcmds/bin/smrtshell 
 $ pbalign --forQuiver --nproc 4 input.fofn 06.fixstart.fasta reads.cmp.h5
 
 # 第二步,polish
 $ ssh c8 或者ssh c2 或者ssh c3
-$ cd 工作目录
+$ 回到工作目录
 $ /home/biosoft/smrtanalysis/smrtcmds/bin/smrtshell
 $ quiver -j 4 reads.cmp.h5 -r 06.fixstart.fasta -o test.quiver.fasta  -o test.quiver.gff -o test.quiver.fastq
 ```
@@ -144,7 +142,13 @@ Polish完成之后检查test.quiver.fasta序列文件。
 
 ### 5. Genome annotation
 
-
+```
+# 回到工作目录
+$ mkdir annotation
+$ cd annotation
+$ ln -s ../quiver/test.quiver.fasta ./genome.fa
+$ prokka --outdir GENOME --prefix XXXXX genome.fasta
+```
 
 ## 参考资料
 1. [canu](https://github.com/marbl/canu)
