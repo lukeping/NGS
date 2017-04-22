@@ -6,7 +6,7 @@
 **说明：`$`后为命令，其他的为输出或说明。**  
 
 ```
-ssh登录服务器172.28.137.55，用户名：ngs
+ssh登录服务器172.28.215.241，用户名：ngs
 
 加载环境变量
 $ module add bioinfo
@@ -49,3 +49,6 @@ job-ID  prior   name       user         state submit/start at     queue         
 
 ```
 
+## 模块  
+1. RNA-Seq  
+2. 基因组组装（PacBio序列）  
