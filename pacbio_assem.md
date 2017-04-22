@@ -153,6 +153,10 @@ $ prokka --outdir GENOME --prefix XXXXX genome.fasta
 
 ### 6. 作业
 查看两个组装软件的结果，dotplots图，用[gepard](http://cube.univie.ac.at/gepard)作dotplots图
+![Dotplots图](./dotplot.jpeg)
+CG-View作图
+![](./map.png)
+
 
 ## 参考资料
 1. [canu](https://github.com/marbl/canu)
