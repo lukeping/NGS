@@ -85,16 +85,65 @@ mecat2canu -assemble -p test -d output \
 	useGrid=0 \
 	Overlapper=mecat2asmpw \
 	-pacbio-corrected corrected_reads_25x.fasta
+
+# 提交任务
+$ qsub work.sh
 ```
 任务完成后其结果存放在output目录中。主要结果文件为test.contigs.fasta 
 
 **比较canu和mecat运行时间和组装**
 
 ### 3.环化（circle）
-由于
+细菌基因组一般为环状分子，但canu或mecat组装时没有考虑基因组是否为环状，需人工检查contig首尾是否有overlap，也可借助于circlator软件来完成。
+由于本次实验用canu和mecat都得到1条contig，我们选mecat组装结果作后续分析。
+```
+# 回到工作目录
+$ cd ../../work
+$ mkdir circle
+$ cd circle
+$ ln -s ../mecat/output/test.contigs.fasta ./
+$ ln -s ../mecat/corrected_reads.fasta ./
 
+# 创建脚本文件work.sh，包含以下内容：
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N circ_wang
+#$ -cwd
+#$ -j y
+module add bioinfo
+circlator all test.contigs.fasta corrected_reads.fasta output
+
+# 提交任务
+$ qsub work.sh
+```
+检查是否已经完成环化。结果存在output目录中，查看文件06.fixstart.detailed.log，环化后的基因组序列文件为06.fixstart.fasta。
+
+### 4.Genome polishing
+三代测序错误率较高，一般组装后需要进行polish，PacBio序列推荐使用Quiver进行polish。
+```
+# 回到工作目录
+$ cd ../../work
+$ mkdir quiver
+$ cd quiver
+$ ln -s ../circle/06.fixstart.fasta ./
+# 第一步align all the reads to the genome
+# 新建一个输入文件列表文件
+$ ls /bs1/data/NGS/pacbio/*.h5 > input.fofn
+$ ssh c8 或者ssh c2 或者ssh c3
+$ cd 工作目录
+$ /home/biosoft/smrtanalysis/smrtcmds/bin/smrtshell 
+$ pbalign --forQuiver --nproc 4 input.fofn 06.fixstart.fasta reads.cmp.h5
+
+# 第二步,polish
+$ ssh c8 或者ssh c2 或者ssh c3
+$ cd 工作目录
+$ /home/biosoft/smrtanalysis/smrtcmds/bin/smrtshell
+$ quiver -j 4 reads.cmp.h5 -r 06.fixstart.fasta -o test.quiver.fasta  -o test.quiver.gff -o test.quiver.fastq
+```
+Polish完
 
 ## 参考资料
 1. [canu](https://github.com/marbl/canu)
 2. [mecat](https://github.com/xiaochuanle/MECAT)
+3. [circlator](https://github.com/sanger-pathogens/circlator)
 
