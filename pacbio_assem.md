@@ -26,11 +26,11 @@ total 15045772
 ### 1. 准备工作目录和数据  
 
 ```
-mkdir work #我以work目录为例，大家自己建一个自己的工作目录，注意，后面的目录名也要作相应改变
-cd work
-mkdir data assem annotation
-ln -s /bs1/data/NGS/pacbio/* data/
-cd assem
+$ mkdir work #我以work目录为例，大家自己建一个自己的工作目录，注意，后面的目录名也要作相应改变
+$ cd work
+$ mkdir data assem annotation
+$ ln -s /bs1/data/NGS/pacbio/* data/
+$ cd assem
 # 新建一个工作脚本文件work.sh，包含下列内容：
 #!/bin/bash
 #$ -S /bin/bash
@@ -44,6 +44,8 @@ canu -p test -d output genomeSize=6.5m \
 	-pacbio-raw ../data/*.fastq
 
 # 提交任务
-qsub work.sh
-
+$ qsub work.sh
 ```
+
+任务完成
+
