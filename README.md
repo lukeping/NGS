@@ -17,13 +17,13 @@ $ module add bioinfo
 
 **掌握以下常用的Linux命令：**
 
-  |  |  |  |  |   |   
---- | --- | --- | --- | --- | ---  |
-ls | cd | mv | rm | pwd | top  |
-ps | grep | kill | file | tar | cat  |
-less | more | chmod | chown | vim (vi) | time  |
-cp | scp | ln | mkdir | wget | git  |
-find | export | source | mount | head | tail  |
+|  |  |  |  |  |   |   
+|  --- | --- | --- | --- | --- | ---  |
+|  ls | cd | mv | rm | pwd | top  |
+|  ps | grep | kill | file | tar | cat  |
+|  less | more | chmod | chown | vim (vi) | time  |
+|  cp | scp | ln | mkdir | wget | git  |
+|  find | export | source | mount | head | tail  |
 
 **使用集群**  
 尽量不要在登录节点（管理节点）上运行大型程序，ssh到其他计算节点上之后再运行其他程序。登录到172.28.137.55管理节点后，`ssh 计算节点名`，计算节点名可以是c2, c3, c4, c5, c6 (目前有问题), c8  
