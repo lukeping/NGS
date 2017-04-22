@@ -4,7 +4,11 @@
 1. 基于第三代测序数据（PacBio）基因组组装  
 2. 基因组注释  
 
-## 数据  
+## 要求  
+1. 了解第三代测序PacBio数据基因组组装基本原理，掌握canu和mecat组装流程
+2. 要求掌握细菌基因组基因组注释流程
+
+## 数据  
 ```
 # 原始测序存放在：
 /bs1/data/NGS/pacbio
@@ -30,6 +34,12 @@ $ mkdir work #我以work目录为例，大家自己建一个自己的工作目�
 $ cd work
 $ mkdir data assem annotation
 $ ln -s /bs1/data/NGS/pacbio/* data/
+
+```
+### 2. 组装
+** canu组装流程 **
+
+```
 $ cd assem
 # 新建一个工作脚本文件work.sh，包含下列内容：
 #!/bin/bash
@@ -41,11 +51,17 @@ module add bioinfo
 canu -p test -d output genomeSize=6.5m \
 	gridEngineThreadsOption="-pe smp THREADS" \
 	gridEngineMemoryOption="-l mem_free=MEMORY" \
+	gridOptions="-S /bin/bash" \
 	-pacbio-raw ../data/*.fastq
 
 # 提交任务
 $ qsub work.sh
 ```
+任务完成后结果存放在output目录中。  
 
-任务完成
+** mecat组装流程 **
+```
+
+```
+
 
