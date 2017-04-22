@@ -1,7 +1,10 @@
 # 高通量测序数据分析实践操作  
 
-## 一、操作说明    
+## 实践模块  
+1. [RNA-Seq](https://github.com/lukeping/NGS/blob/master/RNA-Seq.md)  
+2. [基因组组装（PacBio序列）及注释](https://github.com/lukeping/NGS/blob/master/pacbio_assem.md)  
 
+## 一、操作说明    
 
 **说明：`$`后为命令，其他的为输出或说明。**  
 
@@ -50,6 +53,4 @@ job-ID  prior   name       user         state submit/start at     queue         
 
 ```
 
-## 实践模块  
-1. [RNA-Seq](https://github.com/lukeping/NGS/blob/master/RNA-Seq.md)  
-2. [基因组组装（PacBio序列）及注释](https://github.com/lukeping/NGS/blob/master/pacbio_assem.md)  
+
