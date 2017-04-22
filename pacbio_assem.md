@@ -1,4 +1,4 @@
-# 基因组组装及注释（PacBio序列）  
+# 第三代测序基因组组装及注释（PacBio序列）  
 
 ## 实践内容  
 1. 基于第三代测序数据（PacBio）基因组组装  
@@ -57,11 +57,37 @@ canu -p test -d output genomeSize=6.5m \
 # 提交任务
 $ qsub work.sh
 ```
-任务完成后结果存放在output目录中。  
+任务完成后结果存放在output目录中。主要结果文件为test.contigs.fasta
 
 ** mecat组装流程 **
 ```
+# 回到工作目录
+$ cd ../
+$ mkdir mecat
+# merge the reads to one file
+$ cat ../data/*.fastq > reads.fastq
 
+# 创建脚本文件work.sh，包含以下内容：
+#!/bin/bash
+#$ -S /bin/bash
+#$ -N mecat_wang
+#$ -cwd
+#$ -j y
+module add bioinfo
+mecat2pw -j 0 -d reads.fastq -o reads.fastq.pm.can -w wrk_dir -t 4
+mecat2cns -i 0 -t 4 reads.fastq.pm.can reads.fastq corrected_reads.fasta
+extract_sequences corrected_reads.fasta corrected_reads_25x.fasta 6500000 25
+mecat2canu -assemble -p test -d output \
+	genomeSize=6500000 \
+	ErrorRate=0.02 \
+	maxMemory=40 \
+	maxThreads=4 \
+	useGrid=0 \
+	Overlapper=mecat2asmpw \
+	-pacbio-corrected corrected_reads_25x.fasta
 ```
+任务完成后其结果存放在output目录中。主要结果文件为test.contigs.fasta 
+
+** 比较canu和mecat运行时间和组装 **
 
 
