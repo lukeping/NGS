@@ -156,7 +156,11 @@ $ prokka --outdir GENOME --prefix XXXXX genome.fasta
 ![Dotplots图](./dotplot.jpeg)
 2. CG-View作图  
 ![](./map.jpg)
-
+提示：
+```
+perl /home/biosoft/cgview/cgview_xml_builder/cgview_xml_builder.pl -sequence YZ011.gbk -output output.xml
+java -jar /home/biosoft/cgview/cgview.jar -i output.xml -o map.png -f png
+```
 
 ## 参考资料
 1. [canu](https://github.com/marbl/canu)
